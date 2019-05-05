@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
-import SEO from './SEO'
-import theme from '../../config/theme'
-import useBuildTime from '../hooks/useBuildTime'
+import SEO from "./SEO";
+import theme from "../../config/theme";
+import useBuildTime from "../hooks/useBuildTime";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -184,18 +184,19 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none !important;
   }
-`
+`;
 
 const Footer = styled.footer`
   text-align: center;
   padding: 3rem 1rem;
+  font-size: 0.75rem;
   span {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
-`
+`;
 
 const Layout = ({ children, customSEO }) => {
-  const buildTime = useBuildTime()
+  const buildTime = useBuildTime();
 
   return (
     <ThemeProvider theme={theme}>
@@ -204,22 +205,22 @@ const Layout = ({ children, customSEO }) => {
         <GlobalStyle />
         {children}
         <Footer>
-          &copy; 2019 by John Doe. All rights reserved. <br />
-          <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
+          Copyright &copy;2019 Sarah Ohanian. All rights reserved.
+          <br />
           <span>Last build: {buildTime}</span>
         </Footer>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  customSEO: PropTypes.bool,
-}
+  customSEO: PropTypes.bool
+};
 
 Layout.defaultProps = {
-  customSEO: false,
-}
+  customSEO: false
+};
