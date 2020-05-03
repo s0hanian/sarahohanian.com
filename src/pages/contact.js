@@ -9,19 +9,14 @@ import { Layout, Wrapper, Header, Button } from "../components";
 import config from "../../config";
 
 const Content = styled.div`
+  border: 5px solid #333;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  position: relative;
+  background: white;
   grid-column: 2;
-  box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  padding: 2rem 4rem;
-  background-color: ${props => props.theme.colors.bg};
-  z-index: 9000;
-  margin-top: -3rem;
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 3rem 3rem;
-  }
-  @media (max-width: ${props => props.theme.breakpoints.phone}) {
-    padding: 2rem 1.5rem;
-  }
+  margin-top: 3rem;
+
   form {
     p {
       label,
@@ -37,6 +32,7 @@ const Content = styled.div`
         min-height: 150px;
         width: 100%;
         margin-top: 0.5rem;
+        box-sizing: border-box;
       }
     }
   }
@@ -46,18 +42,14 @@ const Contact = () => (
   <Layout>
     <Wrapper>
       <Helmet title={`Contact | ${config.siteTitle}`} />
-      <Header>
-        <Link to="/">{config.siteTitle}</Link>
-      </Header>
       <Content>
-        <h1>Contact</h1>
-        <p>If you'd like to send me a message, please use this form.</p>
+        <h1>Reach Out</h1>
         <form
           name="contact-form"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="/success"
+          action="/"
         >
           <p>
             <label htmlFor="contact-name">

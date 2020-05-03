@@ -18,14 +18,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   ::selection {
-    color: ${props => props.theme.colors.bg};
-    background: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.bg};
+    background: ${(props) => props.theme.colors.primary};
   }
   html {
-    font-family: ${props => props.theme.fontFamily.sansSerif};
-    font-size: ${props => props.theme.baseFontSize};
+    font-family: ${(props) => props.theme.fontFamily.sansSerif};
+    font-size: ${(props) => props.theme.baseFontSize};
     h1 {
-      font-size: 3.052rem;
+      font-size: 2rem;
     }
     h2 {
       font-size: 2.441rem;
@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     h5 {
       font-size: 1.25rem;
     }
-    @media (max-width: ${props => props.theme.breakpoints.phone}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.phone}) {
       font-size: 16px;
       h1 {
         font-size: 2.488rem;
@@ -59,16 +59,15 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
-    background: ${props => props.theme.colors.bg};
-    color: ${props => props.theme.colors.grey.default};
+    background: ${(props) => props.theme.colors.bg};
+    color: ${(props) => props.theme.colors.grey.default};
   }
   a {
-    color: ${props => props.theme.colors.primary};
-    text-decoration: none;
-    transition: all ${props => props.theme.transitions.normal};
+    color: ${(props) => props.theme.colors.primary};
+    transition: all ${(props) => props.theme.transitions.normal};
   }
   a:hover {
-    color: ${props => props.theme.colors.primaryLight};
+    color: ${(props) => props.theme.colors.primaryLight};
   }
   a:not([href]):not([tabindex]) {
     color: inherit;
@@ -83,8 +82,8 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.colors.grey.dark};
-    font-family: ${props => props.theme.fontFamily.serif};
+    color: ${(props) => props.theme.colors.grey.dark};
+    font-family: ${(props) => props.theme.fontFamily.serif};
   }
   blockquote {
     font-style: italic;
@@ -94,20 +93,20 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before {
     content: "";
     position: absolute;
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     height: 100%;
     width: 6px;
     margin-left: -1.6rem;
   }
   label {
     margin-bottom: .5rem;
-    color: ${props => props.theme.colors.grey.dark};
+    color: ${(props) => props.theme.colors.grey.dark};
   }
   input, textarea, button {
     font-size: 1rem;
   }
   textarea {
-    font-family: ${props => props.theme.fontFamily.sansSerif};
+    font-family: ${(props) => props.theme.fontFamily.sansSerif};
   }
   input, textarea {
     border-radius: .5rem;
@@ -145,12 +144,12 @@ const GlobalStyle = createGlobalStyle`
   }
   table {
     border-collapse: collapse;
-    background-color: ${props => props.theme.colors.bg};
+    background-color: ${(props) => props.theme.colors.bg};
   }
   caption {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    color: ${props => props.theme.colors.color};
+    color: ${(props) => props.theme.colors.color};
     text-align: center;
     caption-side: bottom;
   }
@@ -186,13 +185,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Social = styled.div`
+  margin: 0.5rem;
+`;
+
 const Footer = styled.footer`
   text-align: center;
   padding: 3rem 1rem;
-  font-size: 0.75rem;
-  span {
-    font-size: 0.6rem;
-  }
+  font-size: 0.6rem;
 `;
 
 const Layout = ({ children, customSEO }) => {
@@ -205,9 +205,12 @@ const Layout = ({ children, customSEO }) => {
         <GlobalStyle />
         {children}
         <Footer>
-          Copyright &copy;2019 Sarah Ohanian. All rights reserved.
-          <br />
-          <span>Last build: {buildTime}</span>
+          <Social>
+            <a href="https://linkedin.com/in/sohanian" target="_blank">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACmElEQVRYR2NkYGBg0MnaIPvnN3MXA+N/ewZGBkmQGM3Af4bnDP8ZD37+9qv06dLgJ4zS0WtleLlZLzIwMgjRzFJsBv9nePf56299Ro3UzcsZmP5H0NVymGX/GFcwaqRteoYc7BxszAyBlrIMCuLcDI9ff2NYd+wxw7eff2jjvv8Mzxk10jf9h5nOwcrMsLrSlkFFihdu4YOXXxmC2g4yfP/5lyaOQHGAn7kMQ2eiIYZFNYsuMqw99oj2DohzUmKoDNPGsKhn3TWGubvu0t4BoHjfWOvAwMbCBLfs959/DIEtBxnuvvhCeweAbLDUFGUo8FNnkBfjYXj46gvD5M03GY5ce00Ty0GGoqQBmtmCx2CaOECMn4NBmI+d4e2nnwyvPv7A6y8UByiK8zBMSjfB0JAz4zTDw1dfweIzc8wZpIQ4UdQsO/iAYdXhhwyp7ioMcc5KDII8bHB5kL7ZO+8wrD2KPRehOEBdmo9hQ609hgP8mg4w3H72GSy+s9mJQU6UG0XNtK23GCSFOMEFGC4AKtCqF13AkKaKA958+skgwsdOMAnVL70EDilkQBUHELQZquDp228MbjX7GP79hxe+qLmA3CgAmX/pwQeGlhWXGR68+sqgryDA0BpvwABKjOgAVKbcePIJLkyVEHj/5ReDf/NBhtdIKd5eV5xhRrYZhgNA6QCUHmCAKg5YfeQRQ92SiyiWMTEyMlyY7MXAilSqghSgF+tUcQAoF4BKTHSwr80FnDuQwZQtNxmmbrlF3RAAGQgyGB1gy7LoaqkSAqMOGA2B0RCgWghwc7AwGKtgdpDO3H4H7xuYq4swcLIxo2T5B6++MICa7+iAGLUYHRNiazaqqAN3TAa6azbgnVNQUIIdwcXWPRDdcwCjzNrIint3pgAAAABJRU5ErkJggg==" />{" "}
+            </a>
+          </Social>
+          Copyright &copy;2020 &bull; Last build: {buildTime}
         </Footer>
       </>
     </ThemeProvider>
@@ -218,9 +221,9 @@ export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  customSEO: PropTypes.bool
+  customSEO: PropTypes.bool,
 };
 
 Layout.defaultProps = {
-  customSEO: false
+  customSEO: false,
 };
