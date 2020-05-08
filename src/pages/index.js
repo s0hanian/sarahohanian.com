@@ -57,16 +57,15 @@ const IndexPage = () => (
         </p>
 
         <p>
-          I live about 25 miles outside of{" "}
+          I live about about 25 miles NW of{" "}
           <span className="hilite">Boston, Massachusetts</span>. My preference
-          is a remote position (fully or partially if local), but also open to
-          local opportunities.
+          is a remote position (full or hybrid), but I'm still open to local
+          roles.
         </p>
 
         <p>
-          I'm available after May 5, 2020. Please{" "}
-          <Link to="/contact">reach out</Link> about any open roles or for a
-          copy of my full resum&eacute;.
+          Please <Link to="/contact">reach out</Link> about any open roles or
+          for a copy of my full resum&eacute;.
         </p>
       </Content>
     </Wrapper>
