@@ -42,30 +42,29 @@ const IndexPage = () => (
 
         <p>
           Hello, I'm <span className="hilite">Sarah Ohanian</span>, a full-stack
-          web developer. I've spent the last 8+ years working at{" "}
-          <a href="https://www.tripadvisor.com" target="_blank">
+          engineer. I recently lost my job at{" "}
+          <a href="https://tripadvisor.com" target="_blank">
             Tripadvisor
+          </a>{" "}
+          due to COVID-19 impacting travel, but I'm excited to share I'll be
+          starting a new position in a few weeks at{" "}
+          <a href="https://www.iracing.com/" target="_blank">
+            iRacing
           </a>
-          , but as travel has been severely impacted by COVID-19, I'm now
-          searching for a new position.
+          .
         </p>
 
         <p>
-          I'm a seasoned developer with 20 years of experience working on the
-          web. I've most enjoyed doing product-driven work in a fast-paced
-          environment.
+          While I've been unemployed, I've been working on a project I hope to
+          launch in the next week or two. It's called{" "}
+          <a href="https://estimatey.app/" target="_blank">
+            Estimatey
+          </a>
+          . More details soon!
         </p>
 
         <p>
-          I live about about 25 miles NW of{" "}
-          <span className="hilite">Boston, Massachusetts</span>. My preference
-          is a remote position (full or hybrid), but I'm still open to local
-          roles.
-        </p>
-
-        <p>
-          Please <Link to="/contact">reach out</Link> about any open roles or
-          for a copy of my full resum&eacute;.
+          <Link to="/contact">contact me</Link>
         </p>
       </Content>
     </Wrapper>
