@@ -211,6 +211,12 @@ const Layout = ({ children, customSEO }) => {
             </a>
           </Social>
           Copyright &copy;2020 &bull; Last build: {buildTime}
+          <script
+            async
+            defer
+            data-domain="sarahohanian.com"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
         </Footer>
       </>
     </ThemeProvider>

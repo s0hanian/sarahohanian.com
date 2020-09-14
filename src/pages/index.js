@@ -13,6 +13,7 @@ const Content = styled.div`
   background: white;
   grid-column: 2;
   margin-top: 3rem;
+  min-height: 200px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.phone}) {
     padding: 0.5rem 2rem;
@@ -42,25 +43,13 @@ const IndexPage = () => (
 
         <p>
           Hello, I'm <span className="hilite">Sarah Ohanian</span>, a full-stack
-          engineer. I recently lost my job at{" "}
-          <a href="https://tripadvisor.com" target="_blank">
-            Tripadvisor
-          </a>{" "}
-          due to COVID-19 impacting travel, but I'm excited to share I'll be
-          starting a new position in a few weeks at{" "}
-          <a href="https://www.iracing.com/" target="_blank">
-            iRacing
-          </a>
-          .
+          engineer. I've got a job I like working on cool things with awesome
+          people, so not looking anymore!
         </p>
 
         <p>
-          While I've been unemployed, I've been working on a project I hope to
-          launch in the next week or two. It's called{" "}
-          <a href="https://estimatey.app/" target="_blank">
-            Estimatey
-          </a>
-          . More details soon!
+          Not much else to say right now, but I'll have a few projects to share
+          soon as I get some free time.
         </p>
 
         <p>
